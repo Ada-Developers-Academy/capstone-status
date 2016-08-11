@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'checkins#students'
+
+  controller 'checkins' do
+    get 'students'
+    get 'students/:id', action: 'student', as: :student
+    get 'by_date'
+    get 'by_date/:date', action: 'date', as: :date
+  end
 end
