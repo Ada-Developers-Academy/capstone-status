@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810194120) do
+ActiveRecord::Schema.define(version: 20160811173314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20160810194120) do
     t.text     "yesterday"
     t.text     "today"
     t.text     "blockers"
-    t.datetime "collected_at"
+    t.date     "collected_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["collected_at"], name: "index_checkins_on_collected_at", using: :btree
     t.index ["student_id"], name: "index_checkins_on_student_id", using: :btree
   end
 
