@@ -4,6 +4,7 @@ class CheckinsController < ApplicationController
   end
 
   def student
+    @students = Student.order(:name)
     @student = Student.includes(:checkins).find(params[:id])
   end
 

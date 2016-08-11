@@ -1,0 +1,10 @@
+.checkin
+  %h2
+    Checkin Status for
+    = checkin.collected_at
+  %h3 Yesterday
+  %p= checkin.yesterday
+  %h3 Today
+  %p= checkin.today
+  %h3 Blockers
+  %o= checkin.blockers
