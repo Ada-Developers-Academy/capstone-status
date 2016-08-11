@@ -17,7 +17,7 @@ class SheetsDataBuilder
 
   def data_since(timestamp)
     data.select do |entry|
-      Time.strptime(entry[:collected_at], "%m/%d/%Y %H:%M:%S") > timestamp
+      entry[:collected_at] > timestamp
     end
   end
 
@@ -49,9 +49,12 @@ class RowCleaner
   end
 
   def clean
-    @clean ||= blob.each_with_index.reduce({}) do |accum, (chunk, index)|
-      accum[KEY_ORDER[index]] = chunk['content']['$t']
-      accum
-    end
+    @clean ||= {
+      collected_at: Date.strptime(blob[0]['content']['$t'], "%m/%d/%Y"),
+      name: blob[1]['content']['$t'],
+      yesterday: blob[2]['content']['$t'],
+      today: blob[3]['content']['$t'],
+      blockers: blob[4]['content']['$t']
+    }
   end
 end
