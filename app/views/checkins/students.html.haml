@@ -1,1 +1,4 @@
-= render partial: 'students', locals: { students: @students }
+%h2 Most Recent Student Checkins
+.checkins
+  - @students.each do |student|
+    .checkin= render partial: 'checkin', locals: { checkin: student.checkins.last }

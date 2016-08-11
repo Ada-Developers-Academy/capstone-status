@@ -1,0 +1,4 @@
+%ul.dates
+  %li= link_to "Checkin Dates", by_date_path
+  - dates.each do |date|
+    %li= link_to date, date_path(date)

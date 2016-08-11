@@ -1,10 +1,15 @@
 .checkin
-  %h2
-    Checkin Status for
+  %h4
+    = checkin.student.name
+    reported on
     = checkin.collected_at
-  %h3 Yesterday
-  %p= checkin.yesterday
-  %h3 Today
-  %p= checkin.today
-  %h3 Blockers
-  %o= checkin.blockers
+  %h5 Yesterday
+  %p
+    %h5 Yesterday:
+    = checkin.yesterday
+  %p
+    %h5 Today:
+    = checkin.today
+  %p
+    %h5 Blockers:
+    = checkin.blockers
