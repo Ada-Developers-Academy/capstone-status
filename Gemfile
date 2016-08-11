@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty', '~> 0.14.0'
+gem "haml-rails", "~> 0.9"
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
