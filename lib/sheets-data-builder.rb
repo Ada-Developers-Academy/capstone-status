@@ -15,9 +15,9 @@ class SheetsDataBuilder
     end
   end
 
-  def data_since(timestamp)
+  def data_since(date)
     data.select do |entry|
-      entry[:collected_at] > timestamp
+      entry[:collected_at] >= date
     end
   end
 
