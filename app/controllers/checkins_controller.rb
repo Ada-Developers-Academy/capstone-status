@@ -1,9 +1,7 @@
 class CheckinsController < ApplicationController
   before_action :setup_nav_data
 
-  def students
-
-  end
+  def students; end
 
   def student
     @student = Student.includes(:checkins).find(params[:id])
