@@ -9,12 +9,9 @@ class CheckinsController < ApplicationController
     @student = Student.includes(:checkins).find(params[:id])
   end
 
-  def by_date
-
-  end
-
   def date
     @checkins = Checkin.includes(:student).where(collected_at: params[:date])
+    @missing  = @students - @checkins.map(&:student)
   end
 
   private

@@ -1,0 +1,7 @@
+- if @missing.any?
+  %h2 Missing Checkins on this day for:
+  %ul.flex-boxes= missing_list(@missing).html_safe
+%h2
+  Student Checkins for
+  = params[:date]
+.checkins.flex-boxes= render @checkins
