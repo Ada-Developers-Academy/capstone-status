@@ -3,6 +3,7 @@
 @import "neat";
 @import "base/base";
 
+@import "nav";
 @import "flexboxes";
 
 html { font-size: 16px/1.2 }
@@ -12,89 +13,20 @@ header {
   border-bottom: $base-border;
   overflow: auto;
   margin: 0 0 1rem;
-
-  .content {
-    @include outer-container;
-    padding: 2rem 0;
-  }
 }
 
 main {
   @include outer-container;
 }
 
-nav {
-  $base-border-color: gainsboro !default;
-  $base-border-radius: 0.3rem !default;
-  $base-spacing: 1.5em !default;
-  $action-color: #477DCA !default;
-  $dark-gray: #333 !default;
-  $large-screen: 53.75em !default;
-  $base-font-color: $dark-gray !default;
-  $nav-border-color: $base-border-color;
-  $nav-border: 0.1rem solid $nav-border-color;
-  $nav-background: lighten($nav-border-color, 10);
-  $nav-hover-background: lighten($nav-background, 5);
-  $nav-color: $base-font-color;
+footer {
+  background: lighten($blue, 50%);
+  border-top: $base-border;
 
-  text-align: center;
-
-  section {
-    @include span-columns(6);
-  }
-
-  h2 {
-    font-size: 0.75rem;
-    text-align: left;
-  }
-
-  ul {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-
-    li {
-      display: inline-block;
-      list-style: none;
-      font-size: 0.75rem;
-      padding: 0.5rem 0;
-    }
-
-    ul li {
-      display: none;
-
-      &:nth-child(1),
-      &:nth-child(2),
-      &:nth-child(3) {
-        display: inline;
-      }
-
-      @include media($large-screen) {
-        display: inline;
-      }
-    }
-
-    li a {
-      background: $nav-background;
-      border-radius: $base-border-radius;
-      border: $nav-border;
-      color: $nav-color;
-      outline: none;
-      padding: ($base-spacing / 4) ($gutter / 2);
-      text-decoration: none;
-      transition: all 0.2s ease-in-out;
-
-      &:hover,
-      &:focus {
-        background: $nav-hover-background;
-        color: $action-color;
-      }
-
-      &:active {
-        background: $nav-background;
-      }
-    }
-  }
+  a { display: block;}
 }
 
+.content {
+  @include outer-container;
+  padding: 2rem 0;
+}
