@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'httparty', '~> 0.14.0'
 gem "haml-rails", "~> 0.9"
+gem "bourbon"
+gem "neat"
+gem "bitters"
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
