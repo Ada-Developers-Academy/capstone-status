@@ -1,4 +1,8 @@
 %h1 C5 Capstone Daily Checkin
 %nav
-  .students= render partial: 'shared/students', locals: { students: @students }
-  .dates= render partial: 'shared/dates', locals: { dates: @dates }
+  %section
+    %h2 Checkins By Student
+    %ul= render partial: 'shared/students', locals: { students: @students }
+  %section
+    %h2 Checkins By Date
+    %ul= render partial: 'shared/dates', locals: { dates: @dates }

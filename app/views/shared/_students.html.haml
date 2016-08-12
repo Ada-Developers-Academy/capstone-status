@@ -1,4 +1,3 @@
-%ul.students
-  %li= link_to "Recent", root_path
-  - students.each do |student|
-    %li= link_to student.name, student_path(student)
+%li= link_to "Recent", root_path
+- students.each do |student|
+  %li= link_to student.name, student_path(student)

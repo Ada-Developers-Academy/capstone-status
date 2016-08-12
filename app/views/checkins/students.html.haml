@@ -1,4 +1,4 @@
 %h2 Most Recent Student Checkins
-.checkins
+.checkins.flex-boxes
   - @students.each do |student|
-    .checkin= render partial: 'checkin', locals: { checkin: student.checkins.last }
+    = render partial: 'checkin', locals: { checkin: student.checkins.first }

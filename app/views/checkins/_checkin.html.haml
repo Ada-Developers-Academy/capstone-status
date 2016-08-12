@@ -1,15 +1,14 @@
-.checkin
-  %h4
+.checkin.flex-box
+  %h4.flex-title
     = checkin.student.name
     reported on
     = checkin.collected_at
-  %h5 Yesterday
   %p
-    %h5 Yesterday:
+    %strong Yesterday:
     = checkin.yesterday
   %p
-    %h5 Today:
+    %strong Today:
     = checkin.today
   %p
-    %h5 Blockers:
+    %strong Blockers:
     = checkin.blockers
