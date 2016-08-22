@@ -43,7 +43,7 @@ end
 
 class RowCleaner
   attr_reader :blob
-  KEY_ORDER = [:collected_at, :name, :yesterday, :today, :blockers]
+
   def initialize(blob)
     @blob = blob
   end
