@@ -30,3 +30,10 @@ footer {
   @include outer-container;
   padding: 2rem 0;
 }
+
+.missing {
+  a {
+    display: block;
+    padding: 0.5rem;
+  }
+}
