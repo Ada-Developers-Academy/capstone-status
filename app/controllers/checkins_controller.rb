@@ -25,6 +25,5 @@ class CheckinsController < ApplicationController
     @students = Student.order(:name)
     @dates = Checkin.distinct_dates
     @cohorts = Student.all.map(&:cohort).uniq
-    p @cohorts
   end
 end
