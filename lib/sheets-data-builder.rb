@@ -29,7 +29,7 @@ class SheetsDataBuilder
 
   def grouped_data(refresh = false)
     @grouped_data   = nil if refresh
-    @grouped_data ||= raw_data(refresh).each_slice(GROUP_SIZE)
+    @grouped_data ||= raw_data(refresh).each_slice(GROUP_SIZE - 1)
   end
 
   def raw_data(refresh = false)
