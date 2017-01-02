@@ -14,7 +14,6 @@ class CheckinsController < ApplicationController
 
   def cohort
     @students = Student.where(cohort: params[:cohort])
-    p @students
     @checkins = @students.map(&:checkins)
     render :students
   end
