@@ -6,3 +6,6 @@
   %section
     %h2 Checkins By Date
     %ul= render partial: 'shared/dates', locals: { dates: @dates }
+  %section
+    %h2 Checkins By Class
+    %ul= render partial: 'shared/cohort', locals: { students: @students, cohorts: @cohorts }

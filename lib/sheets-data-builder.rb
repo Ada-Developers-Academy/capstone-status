@@ -1,7 +1,7 @@
 require 'httparty'
 
 class SheetsDataBuilder
-  GROUP_SIZE = 5
+  GROUP_SIZE = 7
 
   attr_reader :id
   def initialize(id = ENV['SHEETS_ID'])
@@ -29,7 +29,7 @@ class SheetsDataBuilder
 
   def grouped_data(refresh = false)
     @grouped_data   = nil if refresh
-    @grouped_data ||= raw_data(refresh).each_slice(GROUP_SIZE)
+    @grouped_data ||= raw_data(refresh).each_slice(GROUP_SIZE - 1)
   end
 
   def raw_data(refresh = false)
@@ -51,10 +51,11 @@ class RowCleaner
   def clean
     @clean ||= {
       collected_at: Date.strptime(blob[0]['content']['$t'], "%m/%d/%Y"),
-      name: blob[1]['content']['$t'],
-      yesterday: blob[2]['content']['$t'],
-      today: blob[3]['content']['$t'],
-      blockers: blob[4]['content']['$t']
+      cohort: blob[1]['content']['$t'],
+      name: blob[2]['content']['$t'],
+      yesterday: blob[3]['content']['$t'],
+      today: blob[4]['content']['$t'],
+      blockers: blob[5]['content']['$t']
     }
   end
 end

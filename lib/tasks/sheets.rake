@@ -6,8 +6,8 @@ namespace :sheets do
     builder = SheetsDataBuilder.new
 
     builder.data_since(Checkin.most_recently_entered_date).each do |entry|
-      student = Student.find_or_create_by(name: entry[:name])
-      student.checkins << Checkin.find_or_initialize_by(entry.without(:name))
+      student = Student.find_or_create_by(name: entry[:name], cohort: entry[:cohort])
+      student.checkins << Checkin.find_or_initialize_by(entry.without(:name, :cohort))
       p "Added (or found) checkin number #{student.checkins.length} for #{student.name}."
     end
   end

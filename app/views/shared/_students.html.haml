@@ -1,3 +1,6 @@
 %li= link_to "Recent", root_path
 - students.each do |student|
-  %li= link_to student.name, student_path(student)
+  - if student.cohort.upcase == ENV['CLASS_ONE']
+    %li= link_to student.name, student_path(student), class: 'class-one'
+  - else
+    %li= link_to student.name, student_path(student), class: 'class-two'
