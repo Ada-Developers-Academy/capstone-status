@@ -1,7 +1,8 @@
 require 'httparty'
+require "pry"
 
 class SheetsDataBuilder
-  GROUP_SIZE = 7
+  GROUP_SIZE = 8
 
   attr_reader :id
   def initialize(id = ENV['SHEETS_ID'])
@@ -29,12 +30,13 @@ class SheetsDataBuilder
 
   def grouped_data(refresh = false)
     @grouped_data   = nil if refresh
-    @grouped_data ||= raw_data(refresh).each_slice(GROUP_SIZE - 1)
+    @grouped_data ||= raw_data(refresh).each_slice(GROUP_SIZE - 2)
   end
 
   def raw_data(refresh = false)
     @raw_data   = nil if refresh
-    @raw_data ||= HTTParty.get(url)['feed']['entry']
+    data = HTTParty.get(url)
+    @raw_data ||= data['feed']['entry']
 
     # the first GROUP_SIZE entries are the title row in the spreadsheet
     @raw_data.pop(@raw_data.length - GROUP_SIZE)
@@ -49,6 +51,7 @@ class RowCleaner
   end
 
   def clean
+    binding.pry
     @clean ||= {
       collected_at: Date.strptime(blob[0]['content']['$t'], "%m/%d/%Y"),
       cohort: blob[1]['content']['$t'],

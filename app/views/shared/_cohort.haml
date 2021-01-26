@@ -2,5 +2,7 @@
 - cohorts.each do |cohort|
   - if cohort.upcase == ENV['CLASS_ONE']
     %li= link_to cohort, cohort_path(cohort), class: 'class-one'
-  - else
+  - elsif cohort.upcase == ENV['CLASS_TWO']
     %li= link_to cohort, cohort_path(cohort), class: 'class-two'
+  - else
+    %li= link_to cohort, cohort_path(cohort), class: 'class-three'
