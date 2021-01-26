@@ -1,5 +1,4 @@
 require 'httparty'
-require "pry"
 
 class SheetsDataBuilder
   GROUP_SIZE = 8
@@ -51,7 +50,6 @@ class RowCleaner
   end
 
   def clean
-    binding.pry
     @clean ||= {
       collected_at: Date.strptime(blob[0]['content']['$t'], "%m/%d/%Y"),
       cohort: blob[1]['content']['$t'],
