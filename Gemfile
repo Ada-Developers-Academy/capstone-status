@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'nokogiri', '~> 1.10.10'
 
-gem 'httparty', '~> 0.14.0'
+gem 'httparty', '~> 0.21.0'
 gem "haml-rails", "~> 1.0.0"
 gem "bourbon"
 gem "neat"
